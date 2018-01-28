@@ -35,7 +35,7 @@ public class FlickrFetchr {
             .appendQueryParameter("api_key", API_KEY)
             .appendQueryParameter("format", "json")
             .appendQueryParameter("nojsoncallback", "1")
-            .appendQueryParameter("extras", "url_s")
+            .appendQueryParameter("extras", "url_s, geo")
             .build();
 
 
@@ -116,6 +116,10 @@ public class FlickrFetchr {
             Gson gson = new GsonBuilder().create();
             item = gson.fromJson(photoJsonObject.toString(), GalleryItem.class);
             item.setmOwner(photoJsonObject.getString("owner"));
+
+            item.setmLat(photoJsonObject.getDouble("latitude"));
+            item.setmLon(photoJsonObject.getDouble("longitude"));
+
             items.add(item);
         }
         return items;

@@ -11,6 +11,8 @@ public class GalleryItem {
     private String id;
     private String url_s;
     private String mOwner;
+    private double mLat;
+    private double mLon;
 
     @Override
     public String toString() {
@@ -54,5 +56,21 @@ public class GalleryItem {
                 .appendPath(mOwner)
                 .appendPath(id)
                 .build();
+    }
+
+    public double getmLat() {
+        return mLat;
+    }
+
+    public void setmLat(double mLat) {
+        this.mLat = mLat;
+    }
+
+    public double getmLon() {
+        return mLon;
+    }
+
+    public void setmLon(double mLon) {
+        this.mLon = mLon;
     }
 }
